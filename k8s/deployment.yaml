@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jbk-flask-app
+  namespace: default
+  labels:
+    app: jbk-flask
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jbk-flask
+  template:
+    metadata:
+      labels:
+        app: jbk-flask
+    spec:
+      containers:
+        - name: jbk-flask
+          image: shrikantexpress/jbk-argocd-demo:latest
+          ports:
+            - containerPort: 5000
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 10
+            periodSeconds: 10

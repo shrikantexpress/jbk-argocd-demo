@@ -7,7 +7,7 @@ app = Flask(__name__)
 def home():
     return jsonify({
         "message": "Jai Bhole Ki from JBK ArgoCD Demo!",
-        "version": "1.0",
+        "version": "2.0",
         "status": "running"
     })
 

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-app-{{ .Values.env }}
+  namespace: {{ .Values.env }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: demo-app
+      env: {{ .Values.env }}
+  template:
+    metadata:
+      labels:
+        app: demo-app
+        env: {{ .Values.env }}
+    spec:
+      containers:
+      - name: demo-app
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        ports:
+        - containerPort: 80

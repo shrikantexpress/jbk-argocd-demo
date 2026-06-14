@@ -4,7 +4,7 @@ metadata:
   name: demo-app-prod
   namespace: prod
 spec:
-  replicas: 3          # 👈 Higher replicas for prod
+  replicas: 5          # 👈 Higher replicas for prod
   selector:
     matchLabels:
       app: demo-app

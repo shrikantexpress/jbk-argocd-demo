@@ -1,6 +1,6 @@
 env: prod
-replicaCount: 3
+replicaCount: 6
 
 image:
-  repository: nginx
-  tag: latest
+  repository: shrikantexpress/demo-app
+  tag: v1
